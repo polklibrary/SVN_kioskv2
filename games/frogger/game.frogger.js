@@ -543,7 +543,7 @@ Frogger.ImageSprite.prototype = {
     // instances of the Frogger.ImageSprite "class", saving on memory usage
     sprite: (function() {
         var img = document.createElement("img");
-        img.src = "/kiosk2/games/frogger/images/spritemap.png";
+        img.src = "/kioskv2/trunk/games/frogger/images/spritemap.png";
         return img;
     }()),
 
@@ -999,7 +999,7 @@ Frogger.ImageSprite.prototype = {
     // will only be drawn once since we are not within the game loop at this point. By
     // splitting the background out into a separate element, we avoid needing to redraw
     // the background each time the game loop executes since it is static.
-    _background.src = "/kiosk2/games/frogger/images/gameboard.gif";
+    _background.src = "/kioskv2/trunk/games/frogger/images/gameboard.gif";
 }(Frogger));
 
 // Define a code module to show the number of lives the player has remaining, and how much
