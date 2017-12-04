@@ -29,5 +29,5 @@ var Weather = {
 }
 
 $(document).ready(function(){
-    Weather.Construct();
+    //Weather.Construct();
 });

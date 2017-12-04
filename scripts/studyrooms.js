@@ -78,6 +78,7 @@ var GCAL = {
 var Groups = {
 
     Data : {},
+    Thread : null,
     ROOMS_TOTAL : 4,
     RoomsLoaded : 0,
 
@@ -137,7 +138,7 @@ var Groups = {
     },
     
     Recheck : function(){
-        setInterval(function(){
+        Groups.Thread = setInterval(function(){
             Groups.Load();
         }, 60000); // recheck every minute.
     },
