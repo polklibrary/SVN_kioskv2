@@ -1,6 +1,6 @@
 var Kiosk = {
     
-    AdvertisementShowSeconds : 20,
+    AdvertisementShowSeconds : 5,
     AdvertisementThread : null,
     AdvertisementIndex : 0,
     AdvertisementActive : [],
@@ -8,7 +8,7 @@ var Kiosk = {
     BackgroundIndex : 0,
     BACKGROUND_MAX: 3,
 
-    TabShowSeconds : 60,
+    TabShowSeconds : 5,
     TabWalkThread : null,
 
     Construct : function(){

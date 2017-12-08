@@ -3,6 +3,10 @@
 
 var Weather = {
     
+    Ready : false,
+    Seconds : 300,
+    Thread : null,
+    
     Construct : function() {
         $.simpleWeather({
             location: 'Oshkosh, WI',
@@ -13,21 +17,27 @@ var Weather = {
                 html += '<div class="weather-city">'+weather.currently+'</div>';
                 html += '<div class="weather-wind">'+weather.wind.direction+' '+weather.wind.speed+' '+weather.units.speed+'</div>';
                 $(".pat-weather").html(html);
+                
+                Weather.Ready = true;
             },
             error: function(error) {
+                Weather.Ready = true;
             }
         });
    
-        Weather.AutoReload();
     },
 
     AutoReload : function(){
-        setInterval(function(){
-            Weather.Construct();
-        }, (60 * 1000) * 5); // (min) * (how many)
+        Weather.Thread = setInterval(function(){
+            if (Weather.Ready){
+                Weather.Ready = false;
+                Weather.Construct();
+            }
+        }, Weather.Seconds * 1000); // (min) * (how many)
     }
 }
 
 $(document).ready(function(){
-    //Weather.Construct();
+    Weather.Construct();
+    Weather.AutoReload();
 });

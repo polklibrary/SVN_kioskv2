@@ -52,6 +52,8 @@ var Hours = {
      GetOpenHours : function(hours){
         if (!hours.is_open)
             return "Closed";
+        //else if (hours.description != "") 
+        //    return hours.description;
         else {
             var startdate = new Date(hours.start * 1000);
             var enddate = new Date(hours.end * 1000);
