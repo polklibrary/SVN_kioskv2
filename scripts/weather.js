@@ -4,7 +4,7 @@
 var Weather = {
     
     Ready : false,
-    Seconds : 300,
+    Seconds : 900,
     Thread : null,
     
     Construct : function() {
