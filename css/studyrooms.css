@@ -14,7 +14,6 @@
 
 
 #studyrooms .rooms {
-    border-radius: 15px;
     float: left;
     overflow-y: scroll;
     height: 910px;
@@ -84,9 +83,9 @@
     position: fixed;
     width: 200px;
 }
-#studyrooms ul:first-child li.room-label {
-     border-radius: 15px 0 0 0;
-}
+/* #studyrooms ul:first-child li.room-label { */
+     /* border-radius: 15px 0 0 0; */
+/* } */
 
 #studyrooms li.group-event-start {
     background-color: rgba(58, 158, 58, 0.7);
