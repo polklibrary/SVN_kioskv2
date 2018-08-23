@@ -189,9 +189,17 @@ body[data-color]  .button.selected .icon{
     z-index: 0;
 }
 
+.unavailable-warning {
+    font-size: 50px;
+    padding-top: 50px;
+    text-align: center;
+}
 
-
-
+.unavailable-warning-note {
+    font-size: 25px;
+    padding-top: 10px;
+    text-align: center;
+}
 
 
 
