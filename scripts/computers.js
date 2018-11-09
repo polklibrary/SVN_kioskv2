@@ -222,10 +222,10 @@ var Computers = {
                 Computers.Data.circulation = response.locations.checkout;
                 Computers.Data.polk118 = response.locations.polk118;
                 Computers.Data.emc = response.locations.emc;
-                Computers.Data.secondfloornorth = Computers.ParseOut(response.locations.catalog, ['UWO628300', 'UWO628400', 'UWO629800', 'UWO629700']);
-                Computers.Data.secondfloorsouth = Computers.ParseOut(response.locations.catalog, ['UWO629900', 'UWO629600']);
-                Computers.Data.thirdfloorsouth = Computers.ParseOut(response.locations.govdocs, ['UWO627900', 'UWO628000', 'UWO628100', 'UWO628200']);
-                Computers.Data.thirdfloornorth = Computers.ParseOut(response.locations.catalog, ['UWO628500', 'UWO628600']);
+                Computers.Data.secondfloornorth = Computers.ParseOut(response.locations.catalog, ['UWO6283W0', 'UWO6284W0', 'UWO6298W0', 'UWO6297W0']);
+                Computers.Data.secondfloorsouth = Computers.ParseOut(response.locations.catalog, ['UWO6299W0', 'UWO6296W0']);
+                Computers.Data.thirdfloorsouth = Computers.ParseOut(response.locations.govdocs, ['UWO6279W0', 'UWO628W00', 'UWO6281W0', 'UWO6282W0']);
+                Computers.Data.thirdfloornorth = Computers.ParseOut(response.locations.catalog, ['UWO6285W0', 'UWO6286W0']);
                 
                 Computers.Setup();
             }
