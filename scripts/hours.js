@@ -110,9 +110,9 @@ var Hours = {
             var hour = Hours.GetReadableHour(date, true);
             $('.pat-current-hour').html(hour);
             
-            if (Hours.ClosingDate != null)
-                if (Hours.ClosingDate < date)
-                    $('.pat-closing-soon').show();
+            // if (Hours.ClosingDate != null)
+                // if (Hours.ClosingDate < date)
+                    // $('.pat-closing-soon').show();
         }, 1000);
     },
     
