@@ -1,6 +1,6 @@
 var Hours = {
 
-    URL : "http://www.uwosh.edu/library/hours_feed?fmt=jsonp&callback=?",
+    URL : "http://www.uwosh.edu/library/about/hours/getHours?fmt=jsonp&callback=?",
     Data : [ ],
     ClosingDate : null,
     Thread : null,
@@ -16,31 +16,43 @@ var Hours = {
 
     Load : function(){
         $.getJSON(Hours.URL, function(response) {
-            Hours.Data = response;
-            Hours.Data.sort(function(a, b) {
-                if (a < b) return -1;
-                if (a > b) return 1;
-                    return 0;
+            
+            var unordered = response['campus-osh'];
+            const ordered = {};
+            Object.keys(unordered).sort().forEach(function(key) {
+                ordered[key] = unordered[key];
             });
+            Hours.Data = ordered;
             Hours.Setup();
         });
     },
     
     Setup : function() {
+        var StartDate = new Date();
         
-        for(var i in Hours.Data)
-            for(var j in Hours.Data[i]) {
-                var DateObject = new Date(j)
-                DateObject.setDate(DateObject.getDate() + 1);
+        for (var i = 0; i < 7; i++){
+            
+            var Year = StartDate.getFullYear() + '';
+            var Month = StartDate.getMonth() + 1; // 0-11
+            if (Month < 10)
+                Month = '0' + Month;
+            var Day = StartDate.getDate();
+            if (Day < 10)
+                Day = '0' + Day;
+            var Id = Year + '-' + Month + '-' + Day;
+            
+            var DT = Hours.Data[Id];
+            
+            var date = $('<div>').addClass('date');
+            var day = $('<div>').addClass('day').html(Hours.GetDay(StartDate));
+            var time = $('<div>').addClass('time').html(Hours.GetOpenHours(DT[0]));
 
-                var date = $('<div>').addClass('date');
-                var day = $('<div>').addClass('day').html(Hours.GetDay(DateObject));
-                var time = $('<div>').addClass('time').html(Hours.GetOpenHours(Hours.Data[i][j][0]));
+            $(date).append(day);
+            $(date).append(time);
+            $('#hours .content-left').append(date);
 
-                $(date).append(day);
-                $(date).append(time);
-                $('#hours .content-left').append(date);
-            }
+            StartDate.setDate(StartDate.getDate() + 1); // next day
+        }
     },
     
 
@@ -52,15 +64,14 @@ var Hours = {
      GetOpenHours : function(hours){
         if (!hours.is_open)
             return "Closed";
-        else if (hours.description != "") 
-            return hours.description;
+        else if (hours.message != "") 
+            return hours.message;
         else {
             var startdate = new Date(hours.start * 1000);
             var enddate = new Date(hours.end * 1000);
             
                 if (Hours.ClosingDate == null) {
                     Hours.ClosingDate = new Date(hours.end * 1000);
-                    //Hours.ClosingDate.setMinutes(Hours.ClosingDate.getMinutes() - (60*11));
                     Hours.ClosingDate.setMinutes(Hours.ClosingDate.getMinutes() - 30);
                 }
                 

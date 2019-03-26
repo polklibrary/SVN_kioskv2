@@ -37,7 +37,7 @@ var Weather = {
     }
 }
 
-$(document).ready(function(){
-    Weather.Construct();
-    Weather.AutoReload();
-});
+// $(document).ready(function(){
+    // Weather.Construct();
+    // Weather.AutoReload();
+// });
