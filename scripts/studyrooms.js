@@ -128,6 +128,7 @@ var Groups = {
         
         process('uwosh.edu_tkcbj196ms5d9jdnvnlrce2i90@group.calendar.google.com');
         process('uwosh.edu_h157e20v3tccouak2ougfncqa0@group.calendar.google.com');
+        process('uwosh.edu_h50n1ucj5qlp9v05ob0vu4h8jo@group.calendar.google.com');
         process('uwosh.edu_v2i8scsqfmn7hanabro28iurc4@group.calendar.google.com');
         process('uwosh.edu_43eh72k76gj9a6a79t3ss1vvn4@group.calendar.google.com');
 
@@ -147,7 +148,7 @@ var Groups = {
         
         $('#studyrooms .rooms').empty();
     
-        for (var h=0; h<4; h++) {
+        for (var h=0; h<5; h++) {
             var ul = $('<ul>');
         
             for (var i=0; i<24; i++) {

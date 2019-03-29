@@ -17,7 +17,7 @@
     float: left;
     overflow-y: scroll;
     height: 910px;
-    width: 820px;
+    width: 816px;
 }
 #studyrooms .rooms::-webkit-scrollbar  {
     background-color: rgba(119, 139, 165, 0.85);
@@ -57,7 +57,7 @@
     padding: 0;
     position: relative;
     text-align: center;
-    width: 200px;
+    width: 159px;
 }
 
 #studyrooms ul:first-child {
@@ -81,7 +81,7 @@
     height: 50px;
     justify-content: center;
     position: fixed;
-    width: 200px;
+    width: 159px;
 }
 /* #studyrooms ul:first-child li.room-label { */
      /* border-radius: 15px 0 0 0; */
