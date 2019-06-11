@@ -77,6 +77,7 @@ var GCAL = {
 
 var Groups = {
 
+    WS_URL : 'http://www.uwosh.edu/library/services/reserve-rooms/room_api',
     Data : {},
     Thread : null,
     ROOMS_TOTAL : 4,
@@ -92,7 +93,7 @@ var Groups = {
     },
     
     Load : function(){
-        var process = function(id, callback){
+        var process = function(id, title, callback){
             Groups.RoomsLoaded = 0;
             
             var start = new Date();
@@ -100,39 +101,85 @@ var Groups = {
             start.setMinutes(0);
             start.setSeconds(0);
             
-            var end = new Date();
-            end.setHours(23);
-            end.setMinutes(59);
-            end.setSeconds(59);
-            GCAL.APIKEY = 'AIzaSyCcsz_ZN1rNDYzF1ha84Fn_p8ZzgNEyXo4';
-            GCAL.get_events(id, start, end, function(data){
+            var Args = {
+                'action': 'get',
+                'id': id,
+                'start': start.getTime(),
+            }
+            
+            
+            $.get(Groups.WS_URL, Args, function(response){
                 var contents = [];
-                for (var i in data.result.items) {
-                    var obj = data.result.items[i];
-                    summary = obj.summary;
-                    if (typeof summary === 'undefined')
-                        summary = 'Private';
+                for (var i in response.data) {
+                    var obj = response.data[i];
+                    rtitle = obj.title;
+                    if (typeof rtitle === 'undefined')
+                        rtitle = 'Private';
                     contents.push({
-                        'start': new Date(obj.start.dateTime),
-                        'end': new Date(obj.end.dateTime),
-                        'summary': summary,
+                        'start': new Date(obj.start),
+                        'end': new Date(obj.end),
+                        'summary': rtitle,
                     });
                 }
-                Groups.Data[data.result.summary] = contents;
-                Groups.RoomsLoaded++;
+                Groups.Data[title] = contents;
                 
+                Groups.RoomsLoaded++;
                 if (Groups.RoomsLoaded >= Groups.ROOMS_TOTAL)
                     Groups.DisplaySchedule(); // Once all done
-            });
+            })
         }
         
-        process('uwosh.edu_tkcbj196ms5d9jdnvnlrce2i90@group.calendar.google.com');
-        process('uwosh.edu_h157e20v3tccouak2ougfncqa0@group.calendar.google.com');
-        process('uwosh.edu_h50n1ucj5qlp9v05ob0vu4h8jo@group.calendar.google.com');
-        process('uwosh.edu_v2i8scsqfmn7hanabro28iurc4@group.calendar.google.com');
-        process('uwosh.edu_43eh72k76gj9a6a79t3ss1vvn4@group.calendar.google.com');
-
+        process('2nd-floor-small-group-room', '2nd Floor Small Group Room');
+        process('2nd-floor-large-group-room', '2nd Floor Large Group Room');
+        process('3rd-floor-north-group-room', '3rd Floor North Group Room');
+        process('3rd-floor-south-group-room', '3rd Floor South Group Room');
+        process('3rd-floor-south-group-study-suite', '3rd Floor South Group Suite');
+        
+        
     },
+    
+    // Load : function(){
+        // var process = function(id, callback){
+            // Groups.RoomsLoaded = 0;
+            
+            // var start = new Date();
+            // start.setHours(0);
+            // start.setMinutes(0);
+            // start.setSeconds(0);
+            
+            // var end = new Date();
+            // end.setHours(23);
+            // end.setMinutes(59);
+            // end.setSeconds(59);
+            // GCAL.APIKEY = 'AIzaSyCcsz_ZN1rNDYzF1ha84Fn_p8ZzgNEyXo4';
+            // GCAL.get_events(id, start, end, function(data){
+                // var contents = [];
+                // for (var i in data.result.items) {
+                    // var obj = data.result.items[i];
+                    // summary = obj.summary;
+                    // if (typeof summary === 'undefined')
+                        // summary = 'Private';
+                    // contents.push({
+                        // 'start': new Date(obj.start.dateTime),
+                        // 'end': new Date(obj.end.dateTime),
+                        // 'summary': summary,
+                    // });
+                // }
+                // Groups.Data[data.result.summary] = contents;
+                // Groups.RoomsLoaded++;
+                
+                // if (Groups.RoomsLoaded >= Groups.ROOMS_TOTAL)
+                    // Groups.DisplaySchedule(); // Once all done
+            // });
+        // }
+        
+        // process('uwosh.edu_tkcbj196ms5d9jdnvnlrce2i90@group.calendar.google.com');
+        // process('uwosh.edu_h157e20v3tccouak2ougfncqa0@group.calendar.google.com');
+        // process('uwosh.edu_h50n1ucj5qlp9v05ob0vu4h8jo@group.calendar.google.com');
+        // process('uwosh.edu_v2i8scsqfmn7hanabro28iurc4@group.calendar.google.com');
+        // process('uwosh.edu_43eh72k76gj9a6a79t3ss1vvn4@group.calendar.google.com');
+
+    // },
     
     IsFinished : function() {
         return !$.isEmptyObject(Groups.Data);
@@ -162,9 +209,13 @@ var Groups = {
         }
 
         var index = 1;
-        for (var i in Groups.Data) {
-            var room = Groups.Data[i];
-            var label = $('<li>').addClass('room-label').html(i);
+        var SortedKeys = Object.keys(Groups.Data);
+        SortedKeys.sort();
+        
+        for (var i in SortedKeys) {
+            var Id = SortedKeys[i];
+            var room = Groups.Data[Id];
+            var label = $('<li>').addClass('room-label').html(Id);
             $('#studyrooms .rooms').find('ul:nth-child(' + index +')').prepend(label);
             for (var j in room) {
                 var event = room[j];

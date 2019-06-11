@@ -99,3 +99,7 @@
 #studyrooms li.coverage {
     background-color: rgba(58, 158, 58, 0.7);
 }
+
+#studyrooms li.coverage:not(.group-event-start){
+    color: rgba(255,255,255,0.1);
+}
