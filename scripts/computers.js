@@ -6,49 +6,49 @@ var Computers = {
 
     Mapping : {
         // Polk 101
-        'UWO5585W0' : 'left: 111px; top:229px;', // TOP LEFT
-        'UWO5584W0' : 'left: 137px; top:230px;',
-        'UWO5586W0' : 'left: 123px; top:206px;',
-        'UWO5583W0' : 'left: 163px; top:216px;',
-        'UWO5589W0' : 'left: 149px; top:187px;',
-        'UWO5588W0' : 'left: 175px; top:187px;',
-        'UWO5581W0' : 'left: 214px; top:229px;',
-        'UWO5582W0' : 'left: 188px; top:230px;',
-        'UWO561210' : 'left: 202px; top:206px;', // MAC
-        'UWO5587W0' : 'left: 263px; top:192px;', // TOP MIDDLE
-        'UWO5590W0' : 'left: 289px; top:192px;',
-        'UWO561310' : 'left: 276px; top:218px;', // MAC
-        'UWO5576W0' : 'left: 111px; top:345px;', // CENTER LEFT
-        'UWO5577W0' : 'left: 123px; top:322px;', 
-        'UWO561110' : 'left: 137px; top:346px;', // MAC
-        'UWO5574W0' : 'left: 163px; top:332px;', 
-        'UWO5578W0' : 'left: 149px; top:300px;', 
-        'UWO5579W0' : 'left: 175px; top:300px;', 
-        'UWO5580W0' : 'left: 202px; top:322px;', 
-        'UWO5573W0' : 'left: 214px; top:345px;', 
-        'UWO5575W0' : 'left: 188px; top:346px;', 
-        'UWO5592W0' : 'left: 263px; top:307px;', // CENTER MIDDLE
-        'UWO5591W0' : 'left: 289px; top:307px;',
-        'UWO5593W0' : 'left: 276px; top:333px;',
-        'UWO5594W0' : 'left: 338px; top:334px;', // CENTER RIGHT
-        'UWO5595W0' : 'left: 364px; top:330px;',
-        'UWO5601W0' : 'left: 350px; top:358px;',
-        'UWO560810' : 'left: 378px; top:376px;', // MAC
-        'UWO5600W0' : 'left: 404px; top:376px;',
-        'UWO5596W0' : 'left: 391px; top:347px;',
-        'UWO5598W0' : 'left: 443px; top:333px;',
-        'UWO5597W0' : 'left: 417px; top:330px;',
-        'UWO5599W0' : 'left: 434px; top:358px;',
-        'UWO5572W0' : 'left: 149px; top:421px;', // BOTTOM LEFT
-        'UWO5571W0' : 'left: 175px; top:421px;',  
-        'UWO561010' : 'left: 162px; top:446px;', // MAC
-        'UWO5605W0' : 'left: 162px; top:389px;',
-        'UWO5602W0' : 'left: 290px; top:421px;', // BOTTOM MIDDLE
-        'UWO560910' : 'left: 264px; top:421px;', // MAC
-        'UWO5603W0' : 'left: 277px; top:446px;', 
-        'UWO5604W0' : 'left: 277px; top:389px;', 
-        'UWO5606W0' : 'left: 264px; top:622px;', // BOTTOM QA
-        'UWO5607W0' : 'left: 279px; top:641px;', // BOTTOM QA
+        'UWO7895W0' : 'left: 111px; top:229px;', // TOP LEFT
+        'UWO7896W0' : 'left: 137px; top:230px;',
+        'UWO7911W0' : 'left: 123px; top:206px;',
+        'UWO7924W0' : 'left: 163px; top:216px;',
+        'UWO7907W0' : 'left: 149px; top:187px;',
+        'UWO7897W0' : 'left: 175px; top:187px;',
+        'UWO7906W0' : 'left: 214px; top:229px;',
+        'UWO7900W0' : 'left: 188px; top:230px;',
+        'UWO5612A0' : 'left: 202px; top:206px;', // MAC
+        'UWO7923W0' : 'left: 263px; top:192px;', // TOP MIDDLE
+        'UWO7904W0' : 'left: 289px; top:192px;',
+        'UWO5613A0' : 'left: 276px; top:218px;', // MAC
+        'UWO7919W0' : 'left: 111px; top:345px;', // CENTER LEFT
+        'UWO7901W0' : 'left: 123px; top:322px;', 
+        'UWO5611A0' : 'left: 137px; top:346px;', // MAC
+        'UWO7898W0' : 'left: 163px; top:332px;', 
+        'UWO7893W0' : 'left: 149px; top:300px;', 
+        'UWO7905W0' : 'left: 175px; top:300px;', 
+        'UWO7918W0' : 'left: 202px; top:322px;', 
+        'UWO7887W0' : 'left: 214px; top:345px;', 
+        'UWO7921W0' : 'left: 188px; top:346px;', 
+        'UWO7909W0' : 'left: 263px; top:307px;', // CENTER MIDDLE
+        'UWO7926W0' : 'left: 289px; top:307px;',
+        'UWO7908W0' : 'left: 276px; top:333px;',
+        'UWO7916W0' : 'left: 338px; top:334px;', // CENTER RIGHT
+        'UWO7892W0' : 'left: 364px; top:330px;',
+        'UWO7925W0' : 'left: 350px; top:358px;',
+        'UWO5608A0' : 'left: 378px; top:376px;', // MAC
+        'UWO7888W0' : 'left: 404px; top:376px;',
+        'UWO7922W0' : 'left: 391px; top:347px;',
+        'UWO7917W0' : 'left: 443px; top:333px;',
+        'UWO7920W0' : 'left: 417px; top:330px;',
+        'UWO7903W0' : 'left: 434px; top:358px;',
+        'UWO7910W0' : 'left: 149px; top:421px;', // BOTTOM LEFT
+        'UWO7914W0' : 'left: 175px; top:421px;',  
+        'UWO5610A0' : 'left: 162px; top:446px;', // MAC
+        'UWO7891W0' : 'left: 162px; top:389px;',
+        'UWO7915W0' : 'left: 290px; top:421px;', // BOTTOM MIDDLE
+        'UWO5609A0' : 'left: 264px; top:421px;', // MAC
+        'UWO7902W0' : 'left: 277px; top:446px;', 
+        'UWO7889W0' : 'left: 277px; top:389px;', 
+        'UWO7913W0' : 'left: 264px; top:622px;', // BOTTOM QA
+        'UWO7912W0' : 'left: 279px; top:641px;', // BOTTOM QA
 
         //Polk118
         'UWO4345W0' : 'left: 124px; top:714px;', // Top Wall
@@ -187,7 +187,9 @@ var Computers = {
                 continue;
                 
             var placement = Computers.Mapping[i];
-            var div = $('<div>').addClass('computer').attr('data-available', data[i]).attr('data-id', i).attr('style', placement);
+            var div = $('<div>').addClass('computer').attr('data-available', data[i]).attr('data-id', i).attr('style', placement).click(function(){
+                alert($(this).attr('data-id'));
+            });
             if (cssClass != null)
                 $(div).addClass(cssClass);
             $('#computers div.map[data-map="' + location + '"]').append(div);
