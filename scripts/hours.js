@@ -1,6 +1,6 @@
 var Hours = {
 
-    URL : "https://library.uwosh.edu/about/hours/getHours?fmt=jsonp&callback=?",
+    URL : "https://library.uwosh.edu/about/hours/getHours",
     Data : [ ],
     ClosingDate : null,
     Thread : null,
