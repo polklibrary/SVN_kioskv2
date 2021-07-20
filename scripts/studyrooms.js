@@ -8,76 +8,10 @@ TODAY_END.setHours(15);
 TODAY_END.setMinutes(0);
 TODAY_END.setSeconds(0);
 
-var GCAL = {
-
-    APIKEY : '',
-    CLIENTID : '',
-    SCOPES : 'https://www.googleapis.com/auth/calendar',
-    
-    oauth : function(callback) {
-        var self = this;
-        this.ready(function(){
-            gapi.client.setApiKey(self.APIKEY);            
-            gapi.auth.authorize({client_id: self.CLIENTID, scope: self.SCOPES, immediate: false}, function(){
-                gapi.client.load('calendar', 'v3', callback); // load calendar api
-            });
-        });
-    }, 
-    
-    results : function(response) {
-        try {
-            return response['result']['items'];
-        }
-        catch(e) {
-            console.log("ERROR:  " + e);
-            return [];
-        }
-    },
-    
-    get_events : function(id, start, end, callback) {
-        // No authentication required
-        var self = this;
-        this.ready(function(){
-            gapi.client.setApiKey(self.APIKEY);
-            gapi.client.request({
-                'path': '/calendar/v3/calendars/'+ id +'/events',
-                'params': {
-                    'timeMin': start.toISOString(),
-                    'timeMax': end.toISOString(),
-                    'alwaysIncludeEmail': false,
-                    'showDeleted': false,
-                    'singleEvents': true,
-                    'maxResults': 100,
-                    'orderBy': 'startTime'
-                }
-            }).then(function(resp) {
-                callback(resp);
-            }, function(reason) {
-                callback(reason);
-            });
-        });
-    },
-    
-   
-    ready : function(callback){
-        var thread = setInterval(function(){
-            if ( !(typeof gapi.client === 'undefined')) {
-                clearInterval(thread);
-                callback();
-            }
-        }, 100);
-    },
-    
-}
-
-
-
-
-
 
 var Groups = {
 
-    WS_URL : 'http://www.uwosh.edu/library/services/reserve-rooms/room_api',
+    WS_URL : 'https://library.uwosh.edu/services/reserve-rooms/room_api',
     Data : {},
     Thread : null,
     ROOMS_TOTAL : 4,
@@ -137,49 +71,7 @@ var Groups = {
         
         
     },
-    
-    // Load : function(){
-        // var process = function(id, callback){
-            // Groups.RoomsLoaded = 0;
-            
-            // var start = new Date();
-            // start.setHours(0);
-            // start.setMinutes(0);
-            // start.setSeconds(0);
-            
-            // var end = new Date();
-            // end.setHours(23);
-            // end.setMinutes(59);
-            // end.setSeconds(59);
-            // GCAL.APIKEY = 'AIzaSyCcsz_ZN1rNDYzF1ha84Fn_p8ZzgNEyXo4';
-            // GCAL.get_events(id, start, end, function(data){
-                // var contents = [];
-                // for (var i in data.result.items) {
-                    // var obj = data.result.items[i];
-                    // summary = obj.summary;
-                    // if (typeof summary === 'undefined')
-                        // summary = 'Private';
-                    // contents.push({
-                        // 'start': new Date(obj.start.dateTime),
-                        // 'end': new Date(obj.end.dateTime),
-                        // 'summary': summary,
-                    // });
-                // }
-                // Groups.Data[data.result.summary] = contents;
-                // Groups.RoomsLoaded++;
-                
-                // if (Groups.RoomsLoaded >= Groups.ROOMS_TOTAL)
-                    // Groups.DisplaySchedule(); // Once all done
-            // });
-        // }
-        
-        // process('uwosh.edu_tkcbj196ms5d9jdnvnlrce2i90@group.calendar.google.com');
-        // process('uwosh.edu_h157e20v3tccouak2ougfncqa0@group.calendar.google.com');
-        // process('uwosh.edu_h50n1ucj5qlp9v05ob0vu4h8jo@group.calendar.google.com');
-        // process('uwosh.edu_v2i8scsqfmn7hanabro28iurc4@group.calendar.google.com');
-        // process('uwosh.edu_43eh72k76gj9a6a79t3ss1vvn4@group.calendar.google.com');
 
-    // },
     
     IsFinished : function() {
         return !$.isEmptyObject(Groups.Data);

@@ -9,11 +9,8 @@
 		<link rel="stylesheet" type="text/css" href="css/directions.css"/>
 		<link rel="stylesheet" type="text/css" href="css/computers.css"/>
 		<link rel="stylesheet" type="text/css" href="css/games.css"/>
-		<link rel="stylesheet" type="text/css" href="css/jquery.simpleWeather.css"/>
         
 		<script type="text/javascript" src="scripts/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="https://apis.google.com/js/client.js"></script>
-		<script type="text/javascript" src="scripts/weather.js"></script>
 		<script type="text/javascript" src="scripts/hours.js"></script>
 		<script type="text/javascript" src="scripts/studyrooms.js"></script>
 		<script type="text/javascript" src="scripts/weather.js"></script>
@@ -322,25 +319,7 @@
         </div>
         
         <a id="refresh-page" href="http://polk.uwosh.edu/kioskv2/trunk"></a>
-        
-        <script type="text/javascript">
-            LoadUniversalAnalytics = function(file, callback) {
-                var s = document.createElement('script');
-                s.type = 'text/javascript';
-                s.src = file;
-                if (file.indexOf('http') == -1)
-                    s.src = document.location.protocol + '//polk.uwosh.edu/analytics/' + file;
-                s.onload = callback;
-                document.getElementsByTagName('head')[0].appendChild(s);
-            };
-        
-            LoadUniversalAnalytics('uat.js', function() {
-                LoadUniversalAnalytics('pas2016.js', function() {
-                    LoadUniversalAnalytics('ua_kiosk2017.js', function(){
-                    });
-                });
-            });
-        </script>
+
         
 	</body>
 </html>
