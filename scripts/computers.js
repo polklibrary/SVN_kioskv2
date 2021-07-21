@@ -127,7 +127,7 @@ var Computers = {
         'thirdfloorsouth' : {},
     },
     
-    WS_URL : 'https://www.uwosh.edu/library/getComputers?alt=jsonp&callback=?',
+    WS_URL : 'https://library.uwosh.edu/getComputers',
     Thread : null,
     ThreadSeconds : 60,
 
