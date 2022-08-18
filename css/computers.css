@@ -3,7 +3,6 @@
     position: relative;
 }
 
-
 #computers > .btn {
     background-color: #888;
     border-radius: 10px;
@@ -110,4 +109,52 @@
 #computers .map .computer[data-available="0"]{
     background-color: rgba(152,34,34,0.8);
 }
+
+
+
+#computers.v2 .outer-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+
+#computers.v2 .box {
+    background-color: rgba(64,152,34,0.8);
+    border: 5px solid rgba(200,200,200,0.5);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    height: 220px;
+    margin: 20px;
+    padding: 15px 15px;
+    position: relative;
+    text-align: center;
+    width: 500px;
+}
+
+
+#computers.v2 .info{
+    display:block;
+    text-align: left;
+}
+
+#computers.v2 .box label{
+    display: block;
+    font-size: 44px;
+    font-weight: bold;
+    font-style: italic;
+    width: 400px;
+    border-bottom: 5px solid rgba(200,200,200,0.7);
+}
+#computers.v2 .box span.total {
+    display:block;
+    font-size: 36px;
+    font-weight: bold;
+}
+
 
