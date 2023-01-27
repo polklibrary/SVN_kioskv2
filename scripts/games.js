@@ -3,20 +3,18 @@ var Games = {
     Information1 : [
         'You can checkout laptops from Circulation!',
         'You can reserve study rooms by visiting the Polk Library website or going to Circulation Desk!',
-        'You can view 80,000+ streaming videos through the Polk Library website!',
+        'You can view streaming videos through the Polk Library website!',
         'We can get you any book from any UW campus!  Just ask us how!',
     ],
     
     Information2 : [
-        'The last week of the semester Polk Library is open 24/7!',
         'You can chat with a librarian 24/7 through the Polk Library website!',
-        'You can text Polk Librarians<br />@ 920-821-1542!',
         'You can request Polk Library to buy new books or movies from the Polk Library website or just by talking to a librarian!',
-        'You can schedule a 1-on-1 appointment with a librarian to help you with your papers and research!',
+        'You can schedule an appointment with a librarian to help you with your papers and research!',
     ],
     
     Information3 : [
-        'On this kiosk, you can see which computers are available right now in the library!',
+        'On this kiosk, you can see the hours the library is open!',
         'On this kiosk, you can see which study rooms are available right now in the library!',
     ],
     
