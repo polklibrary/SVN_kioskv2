@@ -12,6 +12,7 @@ var Kiosk = {
     TabWalkThread : null,
 
     Construct : function(){
+        Kiosk.PinchDisable();
         Kiosk.LoadAdsList();
         Kiosk.Background();
         
@@ -101,6 +102,19 @@ var Kiosk = {
         Kiosk.BackgroundIndex++;
         if (Kiosk.BackgroundIndex > Kiosk.BACKGROUND_MAX)
             Kiosk.BackgroundIndex = 0;        
+    },
+    
+    PinchDisable : function(){
+        document.addEventListener('touchstart', function(event){
+            event.preventDefault();
+        }, {passive: false});
+                
+        document.addEventListener('touchmove', function(event){
+            if(event.touches.length >=2) {
+                event.stopPropagation(); 
+                event.preventDefault(); 
+            }
+        });
     },
     
 }

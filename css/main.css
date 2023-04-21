@@ -4,6 +4,7 @@ html {
     position: relative;
     font-family: Trebuchet MS;
     overflow: hidden; 
+    touch-action:none;
 }
 
 body {
