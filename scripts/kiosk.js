@@ -12,7 +12,7 @@ var Kiosk = {
     TabWalkThread : null,
 
     Construct : function(){
-        Kiosk.PinchDisable();
+        //Kiosk.PinchDisable();
         Kiosk.LoadAdsList();
         Kiosk.Background();
         
