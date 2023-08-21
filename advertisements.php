@@ -1,7 +1,9 @@
 <?php
 
 $dir = "images/ads/active/";
-$callback = $_GET['callback'];
+$callback = "missing";
+if (!empty($_GET['callback']))
+    $callback = $_GET['callback'];
 $data = array();
 if (is_dir($dir)){
     if ($dh = opendir($dir)){
@@ -12,7 +14,6 @@ if (is_dir($dir)){
         closedir($dh);
     }
 }
-header("Access-Control-Allow-Origin", "*");
 header('Content-type: application/json');
 echo $callback . '(' . json_encode($data) . ')';
 ?>
