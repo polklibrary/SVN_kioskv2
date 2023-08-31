@@ -1,6 +1,6 @@
 var Kiosk = {
     
-    AdvertisementShowSeconds : 20,
+    AdvertisementShowSeconds : 20, //20
     AdvertisementThread : null,
     AdvertisementIndex : 0,
     AdvertisementActive : [],
@@ -8,7 +8,7 @@ var Kiosk = {
     BackgroundIndex : 0,
     BACKGROUND_MAX: 3,
 
-    TabShowSeconds : 60,
+    TabShowSeconds : 60, //60
     TabWalkThread : null,
 
     Construct : function(){
@@ -37,10 +37,17 @@ var Kiosk = {
         });
         
         Kiosk.InteractionListener();
-        Kiosk.TabWalker();
+        //Kiosk.TabWalker();  // there are 2
+        Kiosk.TabWalkerLoop();
     },
     
-    
+    TabWalkerLoop : function() {
+        Kiosk.TabWalkThread = setInterval(function(){
+            $('[data-kiosk="directions"]').trigger('click');
+            Kiosk.HandleAd();
+        }, (Kiosk.TabShowSeconds * 1000) + (Kiosk.AdvertisementShowSeconds * 1000));
+    },    
+
     TabWalker : function() {
         Kiosk.TabWalkThread = setInterval(function(){
             var tabcount = $('[data-kiosk]').length-1;
@@ -92,7 +99,8 @@ var Kiosk = {
         $('body').click(function(){
             clearInterval(Kiosk.TabWalkThread);
             clearInterval(Kiosk.AdvertisementThread);
-            Kiosk.TabWalker(); // restart
+            //Kiosk.TabWalker(); // restart // there are 2
+            Kiosk.TabWalkerLoop(); // restart
             Kiosk.ClearAd();
         });
     },
