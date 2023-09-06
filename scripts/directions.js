@@ -120,7 +120,7 @@ var Mappings = {
         Directions.ShowMap('SecondFloorAll');    
     },
     ThirdFloor : function() {
-        Directions.ShowMap('BasementAll');    
+        Directions.ShowMap('ThirdFloorAll');    
     },
     
     Archives : function() {
